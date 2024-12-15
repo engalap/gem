@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import sys
 import os
-api_key = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIzZjMwMDQyNjNAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.ECv6hw2LCl3m7Ahp5hyOFkoZyV4wgucZ6Zz6nA8J8Yo"
 
 def analyze_csv(file_path):
     # Read the CSV file
