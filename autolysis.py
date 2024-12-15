@@ -46,18 +46,18 @@ def analyze_csv(file_path):
             }
         }
     }
-
-    # Send data to ChatGPT-4 with structured function calling
-
-    response = openai.chat.completions.create(
-        model="gpt-4",
-        messages=[{
+    data = {
+        "model": "gpt-4o-mini",
+        "messages": [{
             "role": "user",
             "content": f"Analyze this CSV file with columns {list(df.columns)} and datatypes {column_info.to_dict()}. Suggest appropriate analysis techniques and specify which columns to use for each technique."
         }],
-        functions=[function_call_multiple],
-        function_call={"name": "analyze_csv"}
-    )
+        "functions": [function_call_multiple],
+        "function_call": {"name": "analyze_csv"}
+    }
+
+    response = requests.post(openai.api_base, headers=headers, json=data)
+
     print(response)
 
     # Extract the suggested analysis from the response
